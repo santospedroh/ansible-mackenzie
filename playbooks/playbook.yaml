@@ -1,0 +1,10 @@
+---
+- hosts: webserver
+  tasks:
+    - name: Exibindo o valor da variavel turma
+      debug:
+        msg: "{{ turma }}"
+
+    - name: Exibindo usuarios a serem criados
+      debug:
+        msg: "Usuarios especificos por host {{ user }}"
