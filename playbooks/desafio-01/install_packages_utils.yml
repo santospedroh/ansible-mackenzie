@@ -1,0 +1,24 @@
+- name: Install packages utils
+  hosts: webserver
+  tasks:
+    - name: Upgrade all packages
+      become: true
+      yum:
+        name: '*'
+        state: latest
+
+    - name: Instalando Pacotes
+      become: true
+      yum:
+        name:
+          - nmap
+          - telnet
+          - htop
+          - vim
+          - glibc-utils
+          - git
+          - curl
+          - bind-utils
+          - httpd
+        state: present
+        update_cache: yes
