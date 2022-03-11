@@ -1,0 +1,43 @@
+---
+- hosts: all
+  gather_facts: true
+  become: 'yes'
+  tasks:
+    - name: Install Apache
+      yum:
+        name: httpd
+        state: present
+      tags:
+        - deploy
+        - config
+    - name: Enable Apache
+      service:
+        name: httpd
+        enabled: 'yes'
+      tags:
+        - deploy
+        - config
+    - name: Delete Files
+      file:
+        path: /var/www/html/index.html
+        state: absent
+      tags:
+        - deploy
+        - config
+    - name: Apache content
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <h1> Esta pagina e do servidor: {{ ansible_nodename }} </h1>
+      tags:
+        - deploy
+        - config
+      notify:
+        - restart apache
+        
+  handlers:
+    - name: restart apache
+      service:
+        name: httpd
+        state: restarted
+      become: yes
