@@ -1,0 +1,30 @@
+- name: Deploy Mysite
+  hosts: webserver
+  tasks:
+    - name: Upgrade all packages
+      become: true
+      yum:
+        name: '*'
+        state: latest
+        
+    - name: Enable httpd
+      become: true
+      command: systemctl enable httpd
+
+    - name: Download Site
+      unarchive:
+        src: https://html5up.net/forty/download
+        dest: /home/ec2-user/
+        remote_src: yes
+        validate_certs: no
+
+    - name: Copy Site to Apache path
+      become: true
+      copy:
+        src: /home/ec2-user/
+        dest: /var/www/html/
+        remote_src: yes
+
+    - name: Restart httpd
+      become: true
+      command: systemctl start httpd
