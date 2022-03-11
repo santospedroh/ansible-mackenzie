@@ -1,0 +1,12 @@
+---
+- hosts: webserver
+  gather_facts: False
+
+  tasks:
+    - name: Obtendo informacoes de disco
+      shell: "df -h"
+      register: disc
+
+    - name: Exibindo discos
+      debug:
+        msg: "{{ disc }}" 
