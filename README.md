@@ -6,7 +6,7 @@ Arquivos e exemplos das aula de Ansible - IaC curso DevOps Engineering and Cloud
 ## Desafio 1
 [Código fonte](desafios/install_packages_utils.yml)
 
-Criar um playbook que seja responsável pela instalação de alguns pacotes vitais para a sustentação e manutenção dos sistemas operacionais, sendo eles:
+Criar um playbook que seja responsável pela instalação de alguns pacotes vitais para a sustentação e manutenção dos sistemas operacionais, são eles:
 
 * nmap
 * telnet
