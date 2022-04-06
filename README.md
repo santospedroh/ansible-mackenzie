@@ -5,13 +5,13 @@ Arquivos e exemplos das aula de Ansible - IaC curso DevOps Engineering and Cloud
 
 ## Instalação do ansible amazon linux 2
 
-Step 1 — Install the latest version of a packages
+Step 1 — Install the latest version of a packages: 
 `$ sudo yum update -y`
 
-Step 2 — Use the amazon-linux-extras command to install ansible.
+Step 2 — Use the amazon-linux-extras command to install ansible: 
 `$ sudo amazon-linux-extras install ansible2 -y`
 
-Step 3 – Check Ansible Version
+Step 3 – Check Ansible Version: 
 `$ ansible — version`
 
 ## Desafio 1
